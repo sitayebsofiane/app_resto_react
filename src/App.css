@@ -86,7 +86,7 @@ main {
 /* WELCOME PAGE */
 .welcomePage {
   background-color: var(--red-color);
-  background-image: url(images/wolverine.png);
+  background-image: url(images/chef.png);
   background-repeat: no-repeat;
   background-position: center center;
   display: flex;
@@ -99,11 +99,11 @@ main {
 }
 
 .leftImg {
-  background-image: url(images/wolverine.png), url(images/griffes-gauche.png);
+  background-image: url(images/chef.png), url(images/griffes-gauche.png);
 }
 
 .rightImg {
-  background-image: url(images/wolverine.png), url(images/griffes-droit.png);
+  background-image: url(images/chef.png), url(images/griffes-droit.png);
 }
 
 .leftBox {
