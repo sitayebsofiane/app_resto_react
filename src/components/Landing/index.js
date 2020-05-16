@@ -6,7 +6,7 @@ const Landing = () => {
        grif.current.classList.add("homeImg");
        setTimeout(()=>{
            grif.current.classList.remove("homeImg");
-       },3000)
+       },2000)
     }, [])
     return (
         <main ref={grif} className="welcomePage">

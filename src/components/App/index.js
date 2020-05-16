@@ -3,11 +3,13 @@ import './../../App.css';
 import Header from '../Header';
 import Landing from '../Landing';
 import Footer from '../Footer';
+import Welcome from '../Welcome';
 
 function App() {
   return (
     <div >
       <Header />
+      <Welcome />
       <Landing />
       <Footer />
     </div>

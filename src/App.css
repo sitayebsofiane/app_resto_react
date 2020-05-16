@@ -19,9 +19,9 @@
   font-family: 'Roboto', sans-serif;
 }
 
-h1 {
+h1{
   font-family: 'Bangers', cursive;
-  font-size: 70px;
+  font-size: 20px;
   color: var(--white-color);
   font-weight: normal;
   text-align: center;
@@ -86,7 +86,7 @@ main {
 /* WELCOME PAGE */
 .welcomePage {
   background-color: var(--red-color);
-  background-image: url(images/307076.svg);
+  background-image: url(images/chapeau.png);
   background-repeat: no-repeat;
   background-position: center center;
   display: flex;
@@ -99,14 +99,14 @@ main {
 }
 
 .leftImg {
-  background-image: url(images/chef.png), url(images/griffes-gauche.png);
+  background-image: url(images/chapeau.png), url(images/griffes-gauche.png);
 }
 
 .rightImg {
-  background-image: url(images/chef.png);
+  background-image: url(images/chapeau.png);
 }
 .homeImg {
-  background-image: url(images/chef.png);
+  background-image: url(images/307076.svg);
 }
 
 .leftBox {
@@ -134,7 +134,9 @@ main {
   text-decoration: none;
   margin-top: 150px;
 }
-
+a:link{
+text-decoration:none;
+}
 .btn-welcome:hover {
   border: 2px solid var(--white-color);
   color: var(--red-color);
@@ -173,7 +175,7 @@ footer {
 }
 
 /* ERROR PAGE */
-.quiz-bg {
+.resto-bg {
   margin: 0;
   padding: 0;
   background-color: var(--white-color);
