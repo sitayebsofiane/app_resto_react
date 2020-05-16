@@ -10,7 +10,6 @@ const Landing = () => {
     }, [])
     return (
         <main ref={grif} className="welcomePage">
-         
         </main>
     )
 }

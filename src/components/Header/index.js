@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef } from 'react';
-
+import { Link } from 'react-router-dom';
 const Header = () => {
   const [btn, setBtn] = useState(false);
   const message = useRef(null);
@@ -18,9 +18,9 @@ const Header = () => {
   }
   const display = btn && (
     <div ref={message} className="banner-container">
-    <button><a href="/"> cliquer ici our aller au site client</a></button>
+    <Link to ="/">cliquer ici our aller au site client</Link>
       <div onMouseOver={setMessage} onMouseOut={clearMessage} className="leftBox" >
-        <button  className="btn-welcome">Connexion</button>
+        <Link to="/login" className="btn-welcome">Connexion</Link>
       </div>
     </div>
   )
