@@ -1,7 +1,7 @@
 import React, { useState , useContext} from 'react';
 import {FirebaseContext} from '../Firebase';
 
-const Signup = () => {
+const Signup = (props) => {
     const firebase = useContext(FirebaseContext);
     const data = {
         pseudo: '',
@@ -23,6 +23,9 @@ const Signup = () => {
         .then(user=>{
             //ici je vide mon etat
             setLoginData({...data});
+            //je le redirige vers la page(composant) welcome
+            props.history.push('/login');
+
         })
         .catch(error=>{
             setError(error);
