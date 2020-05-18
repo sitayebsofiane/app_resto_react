@@ -30,7 +30,7 @@ const Signup = () => {
             setLoginData({...data});
         })
     }
-    const {pseudo, email, password, confirmPassword} = useState(data);
+    const {pseudo, email, password, confirmPassword} = loginData;
     const btn = (pseudo === '' || email === '' || password === '' || password !== confirmPassword) ?
                     <button disabled>Inscription</button> : <button >Inscription</button>
     //gestion du message d'erreur
