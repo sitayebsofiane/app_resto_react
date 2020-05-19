@@ -1,4 +1,5 @@
 import React,{ useState,useEffect ,useContext} from 'react';
+import { Link } from 'react-router-dom';
 import {FirebaseContext} from '../Firebase';
 
 const Login = (props) => {
@@ -51,6 +52,8 @@ const Login = (props) => {
                                     <label htmlFor="password">Mot de passe</label>
                                 </div>
                                 {btn ? <button>Connexion</button>: <button disabled>Connexion</button>}
+                                <br />
+                                <Link className="simpleLink" to="/motpasseoublie">mot de passe oublier Recuperez-le ici </Link>
                             </form>
                         </div>
                     </div>

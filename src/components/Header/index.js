@@ -1,4 +1,4 @@
-import React, { useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 const Header = () => {
   const [btn, setBtn] = useState(false);
@@ -7,13 +7,11 @@ const Header = () => {
       setBtn(true);
     }, 1000)
   }, [])
- 
+
   const display = btn && (
-    <div  className="banner-container">
-    <Link to ="/client">cliquer ici pour aller au site client</Link>
-      <div className="leftBox" >
-        <h1> Bienvenue restaurant de roubaix </h1>
-      </div>
+    <div className="banner-container">
+      <Link to="/client">cliquer ici pour aller au site client</Link>
+      <Link to="/"><h1> Bienvenue restaurant de roubaix </h1></Link>
     </div>
   )
   return (
