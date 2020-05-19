@@ -1,4 +1,4 @@
-import React,{ useState,Fragment,useContext,useEffect } from 'react';
+import React, { useState, Fragment, useContext, useEffect } from 'react';
 import { FirebaseContext } from '../Firebase';
 import { Link } from 'react-router-dom';
 import Logout from '../Logout';
@@ -11,34 +11,34 @@ const Welcome = (props) => {
     const firebase = useContext(FirebaseContext);
     const [userSession, setUserSession] = useState(null);
     useEffect(() => {
-        let ecouteur = firebase.auth.onAuthStateChanged(user=>{
-            user ?setUserSession(user):props.history.push("/");
+        //cette fonction onAuthStateChanged verifie si l'user est connecter dans session
+        let ecouteur = firebase.auth.onAuthStateChanged(user => {
+            user ? setUserSession(user) : setTimeout(() => {
+                props.history.push('/login');
+            },2000);
         });
         return () => {
-           ecouteur()
+            ecouteur()
         };
-    }, [firebase,props.history])
-    const f = ()=>{
-        setUserSession(null);
-    }
+    }, [firebase, props.history])
     return (
-        userSession === null ?(
+        userSession === null ? (
             <Fragment>
-                 <div className="loader"></div>
-                 <p style={{ textAlign:"center" }} onClick={f}>Loading ...</p>
-            </Fragment>   
-        ):(
-            <div className="resto_bg">
-                <div style={styleInscription} className="leftBox" >
-                    <Link to="/signup" className="btn-welcome">Inscription des utilisateurs</Link>
+                <div className="loader"></div>
+                <p style={{ textAlign: "center" }}>Loading ...</p>
+            </Fragment>
+        ) : (
+                <div className="resto_bg">
+                    <div style={styleInscription} className="leftBox" >
+                        <Link to="/signup" className="btn-welcome">Inscription des utilisateurs</Link>
+                    </div>
+                    <div>
+                        <Logout />
+                        <Produits />
+                    </div>
                 </div>
-                <div>
-                    <Logout />
-                    <Produits />
-                </div>
-            </div>
-        )
-        
+            )
+
     )
 }
 
