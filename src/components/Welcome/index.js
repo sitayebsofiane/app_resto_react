@@ -1,18 +1,22 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-const styleInscription ={
-    display:'inline-block',
-    padding: '100px'
+import Logout from '../Logout';
+import Produits from '../Produits.js';
+
+const styleInscription = {
+    display: 'inline-block',
+    
 
 }
 const Welcome = () => {
     return (
         <div className="resto_bg">
-            <div>
-                Welcome
-            </div>
             <div style={styleInscription} className="leftBox" >
-                <Link to="/signup" className="btn-welcome">Inscription</Link>
+                <Link to="/signup" className="btn-welcome">Inscription des utilisateurs</Link>
+            </div>
+            <div>
+                <Logout />
+                <Produits />
             </div>
         </div>
     )
