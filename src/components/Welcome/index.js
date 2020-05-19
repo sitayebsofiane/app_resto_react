@@ -17,7 +17,7 @@ const Welcome = (props) => {
         return () => {
            ecouteur()
         };
-    }, [])
+    }, [firebase,props.history])
     const f = ()=>{
         setUserSession(null);
     }

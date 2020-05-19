@@ -10,7 +10,7 @@ const Header = () => {
  
   const display = btn && (
     <div  className="banner-container">
-    <Link to ="/">cliquer ici pour aller au site client</Link>
+    <Link to ="/client">cliquer ici pour aller au site client</Link>
       <div className="leftBox" >
         <h1> Bienvenue restaurant de roubaix </h1>
       </div>
