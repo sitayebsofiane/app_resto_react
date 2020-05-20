@@ -29,6 +29,6 @@ class Firebase {
     passwordReset = (email)=>this.auth.sendPasswordResetEmail(email);
 
     //enristrement user dans la base de donnée
-    user = uid =>this.db.doc(`users/${uid}`);
+    user = (uid) =>this.db.doc(`users/${uid}`);
 }
 export default Firebase;
