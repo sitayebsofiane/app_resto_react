@@ -10,17 +10,33 @@ const styleInscription = {
 const Welcome = (props) => {
     const firebase = useContext(FirebaseContext);
     const [userSession, setUserSession] = useState(null);
+    //variable d'etat des donner qui concerne un user
+    const [userData, setUserData] = useState({})
     useEffect(() => {
         //cette fonction onAuthStateChanged verifie si l'user est connecter dans session
         let ecouteur = firebase.auth.onAuthStateChanged(user => {
             user ? setUserSession(user) : setTimeout(() => {
                 props.history.push('/login');
-            },2000);
+            }, 2000);
         });
+        if (userSession !== null) {
+            // recuperation de doc user de firebase
+            firebase.user(userSession.uid)
+                .get()
+                .then((doc) => {
+                    if (doc && doc.exists) {
+                        const myData = doc.data();
+                        setUserData(myData);
+                    }
+                })
+                .catch((error) => {
+                    console.log(error)
+                });
+        }
         return () => {
             ecouteur()
         };
-    }, [firebase, props.history])
+    }, [firebase, props.history, userSession])
     return (
         userSession === null ? (
             <Fragment>
@@ -34,7 +50,7 @@ const Welcome = (props) => {
                     </div>
                     <div>
                         <Logout />
-                        <Produits />
+                        <Produits userData={userData} />
                     </div>
                 </div>
             )
