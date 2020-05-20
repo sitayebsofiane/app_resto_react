@@ -15,7 +15,7 @@ const Landing = () => {
         main.current.classList.add("homeImg");
         setTimeout(() => {
                 main.current.classList.remove("homeImg");
-        }, 500)
+        },500)
     }, [])
     return (
         <main ref={main} className="welcomePage" onMouseOver={setMessage} onMouseOut={clearMessage} >
