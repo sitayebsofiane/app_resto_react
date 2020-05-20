@@ -2,7 +2,7 @@ import React,{Component} from 'react'
 
 class Produits extends Component {
     render(){
-
+        
         return (
             <div className="resto-bg">
                 <div className="container">
