@@ -32,7 +32,5 @@ class Firebase {
     //enrigistrement user dans la base de donnée
     user = (uid) =>this.db.doc(`users/${uid}`);
 
-    //enrigistrement produit dans la base de donnée
-    produit = (pid)=>this.db.doc(`produits/${pid}`);
 }
 export default Firebase;

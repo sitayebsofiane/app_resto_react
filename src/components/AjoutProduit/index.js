@@ -1,12 +1,11 @@
-import React, { useContext } from 'react';
-import { FirebaseContext } from '../Firebase';
+import React/*, { useContext }*/ from 'react';
+
 
 
 
 
 const AjoutProduit = (props) => {
-    const firebase = useContext(FirebaseContext);
-    console.log(firebase)
+    //const firebase = useContext(FirebaseContext);
     return (
 
         <div className="resto_bg">

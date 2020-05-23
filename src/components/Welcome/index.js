@@ -13,6 +13,8 @@ const Welcome = (props) => {
     const [userSession, setUserSession] = useState(null);
     //variable d'etat des donner qui concerne un user
     const [userData, setUserData] = useState({})
+    const [produits, setProduits] = useState({})
+    const [idProduit, setIdProduits] = useState(null)
     useEffect(() => {
         //cette fonction onAuthStateChanged verifie si l'user est connecter dans session
         let ecouteur = firebase.auth.onAuthStateChanged(user => {
@@ -32,6 +34,19 @@ const Welcome = (props) => {
             })
             .catch((error) => {
                 console.log(error)
+            });
+            firebase.db.collection("produits")
+            .get()
+            .then(function(querySnapshot) {
+                querySnapshot.forEach(function(doc) {
+                    // doc.data() is never undefined for query doc snapshots
+                    setProduits(doc.data())
+                    setIdProduits(doc.id)
+                    console.log(doc.id, " => ", doc.data());
+                });
+            })
+            .catch(function(error) {
+                console.log("Error getting documents: ", error);
             });
         }
         return () => {
@@ -53,7 +68,7 @@ const Welcome = (props) => {
                     <div>
                         <Logout />
                         <AjoutProduit />
-                        <Produits userData={userData} />
+                        <Produits produits={produits} idProduit={idProduit} />
                     </div>
                 </div>
             )

@@ -194,8 +194,7 @@ footer {
 
 /* SIGNUP - LOGIN - FORGETPASSWORD */
 .signUpLoginBox {
-  background-image: url(images/bg_image.jpg);
-  background-repeat: repeat;
+  background: no-repeat center/100% url(images/bg_image.jpg);
   -webkit-box-shadow: inset 0px 143px 108px -18px rgba(0, 0, 0, 0.39);
   -moz-box-shadow: inset 0px 143px 108px -18px rgba(0, 0, 0, 0.39);
   box-shadow: inset 0px 143px 108px -18px rgba(0, 0, 0, 0.39);
@@ -267,7 +266,7 @@ footer {
   width: 100%;
   padding: 10px 0;
   font-size: 17px;
-  color: var(--red-color);
+  color: var(--blue-color);
   text-transform: uppercase;
   font-weight: bold;
   margin-bottom: 30px;
