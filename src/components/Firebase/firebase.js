@@ -19,6 +19,7 @@ class Firebase {
     }
     //inscription
     signUpUser = (email,password) => this.auth.createUserWithEmailAndPassword(email,password);
+    
     //connexion
     loginUser = (email,password)=>this.auth.signInWithEmailAndPassword(email,password);
     
@@ -28,7 +29,10 @@ class Firebase {
     //recuperer le mot de passe 
     passwordReset = (email)=>this.auth.sendPasswordResetEmail(email);
 
-    //enristrement user dans la base de donnée
+    //enrigistrement user dans la base de donnée
     user = (uid) =>this.db.doc(`users/${uid}`);
+
+    //enrigistrement produit dans la base de donnée
+    produit = (pid)=>this.db.doc(`produits/${pid}`);
 }
 export default Firebase;

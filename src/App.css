@@ -50,8 +50,7 @@ h3 {
 body {
   margin: 0;
   padding: 0;
-  background-image: url(images/bg-noise-texture.png);
-  background-repeat: repeat;
+  background: no-repeat center/100% url(images/ifri.jpg) ;
   height: 100vh;
   display: flex;
   flex-direction: column;
@@ -85,7 +84,7 @@ main {
 
 /* WELCOME PAGE */
 .welcomePage {
-  background-color: var(--red-color);
+  background-color: var(--blue-color);
   background-image: url(images/chapeau.png);
   background-repeat: no-repeat;
   background-position: center center;
@@ -195,7 +194,7 @@ footer {
 
 /* SIGNUP - LOGIN - FORGETPASSWORD */
 .signUpLoginBox {
-  background-image: url(images/bg-noise-texture.png);
+  background-image: url(images/bg_image.jpg);
   background-repeat: repeat;
   -webkit-box-shadow: inset 0px 143px 108px -18px rgba(0, 0, 0, 0.39);
   -moz-box-shadow: inset 0px 143px 108px -18px rgba(0, 0, 0, 0.39);

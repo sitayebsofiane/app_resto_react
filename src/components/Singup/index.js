@@ -62,7 +62,7 @@ const Signup = (props) => {
         userSession === null ? (
             <Fragment>
                 <div className="loader"></div>
-                <p style={{ textAlign: "center" }}>Loading ...</p>
+                <p style={{ textAlign: "center" }}>chargement ...</p>
             </Fragment>
         ) : (<div className="signUpLoginBox">
             <div className="slContainer">
@@ -99,5 +99,4 @@ const Signup = (props) => {
             )
     )
 }
-
 export default Signup;
