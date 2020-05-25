@@ -42,7 +42,7 @@ const Welcome = (props) => {
                     // doc.data() is never undefined for query doc snapshots
                     setProduits(doc.data())
                     setIdProduits(doc.id)
-                    console.log(doc.id, " => ", doc.data());
+                    //console.log(doc.id, " => ", doc.data());
                 });
             })
             .catch(function(error) {
