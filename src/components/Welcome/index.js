@@ -2,8 +2,7 @@ import React, { useState, Fragment, useContext, useEffect } from 'react';
 import { FirebaseContext } from '../Firebase';
 import { Link } from 'react-router-dom';
 import Logout from '../Logout';
-import Produits from '../Produits.js';
-import AjoutProduit from '../AjoutProduit';
+import ProduitsRef from '../ProduitsRef.js';
 
 const styleInscription = {
     display: 'inline-block',
@@ -12,9 +11,7 @@ const Welcome = (props) => {
     const firebase = useContext(FirebaseContext);
     const [userSession, setUserSession] = useState(null);
     //variable d'etat des donner qui concerne un user
-    const [userData, setUserData] = useState({})
-    const [produits, setProduits] = useState({})
-    const [idProduit, setIdProduits] = useState(null)
+    const [userData, setUserData] = useState({});
     useEffect(() => {
         //cette fonction onAuthStateChanged verifie si l'user est connecter dans session
         let ecouteur = firebase.auth.onAuthStateChanged(user => {
@@ -35,19 +32,6 @@ const Welcome = (props) => {
             .catch((error) => {
                 console.log(error)
             });
-            firebase.db.collection("produits")
-            .get()
-            .then(function(querySnapshot) {
-                querySnapshot.forEach(function(doc) {
-                    // doc.data() is never undefined for query doc snapshots
-                    setProduits(doc.data())
-                    setIdProduits(doc.id)
-                    //console.log(doc.id, " => ", doc.data());
-                });
-            })
-            .catch(function(error) {
-                console.log("Error getting documents: ", error);
-            });
         }
         return () => {
             ecouteur()
@@ -67,8 +51,7 @@ const Welcome = (props) => {
                     </div>
                     <div>
                         <Logout />
-                        <AjoutProduit />
-                        <Produits produits={produits} idProduit={idProduit} />
+                        <ProduitsRef />
                     </div>
                 </div>
             )

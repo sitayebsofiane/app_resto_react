@@ -31,6 +31,9 @@ class Firebase {
 
     //enrigistrement user dans la base de donnée
     user = (uid) =>this.db.doc(`users/${uid}`);
+    
+    //creation de produit de reference
+    ajouterProduitRef = (doc)=>this.db.collection("produits").add(doc);
 
 }
 export default Firebase;

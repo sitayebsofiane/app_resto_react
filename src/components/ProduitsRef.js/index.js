@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 class Produits extends Component {
    
         state = { 
-            produits:[]
+            produitsRef:[]
         }
 
     componentDidMount(){
@@ -21,12 +21,12 @@ class Produits extends Component {
         .catch(function(error) {
             console.log("Error getting documents: ", error);
         }) 
-        this.setState({ produits:tab })
+        this.setState({ produitsRef:tab })
     }
     
     
     data = ()=>{ 
-        const data = this.state.produits.map((produit,index)=>{
+        const data = this.state.produitsRef.map((produit,index)=>{
             return(
                 <tr key={index}>
                     <th scope="row">{produit.id}</th>
@@ -44,7 +44,7 @@ class Produits extends Component {
             <div className="resto-bg">
           
                 <table>
-                    <caption><Link to="/signup" >Ajouter des produits de reference</Link></caption>
+                    <caption><Link to="/ajouterProduitRef" >Ajouter des produits de reference</Link></caption>
                     <thead>
                         <tr>
                             <th scope="col">ID produit</th>
@@ -53,14 +53,13 @@ class Produits extends Component {
                         </tr>
                     </thead>
                     <tbody>
-                    {
-                        this.data()
-                    }
+                    {/* insertion des data */}
+                    { this.data() }
                     </tbody>
                     <tfoot>
                         <tr>
-                            <th scope="row" colSpan="2">Total produits</th>
-                            <td colSpan="2">{this.state.produits.length}</td>
+                            <th scope="row" colSpan="2">Total produits de references</th>
+                            <td colSpan="2">{this.state.produitsRef.length}</td>
                         </tr>
                     </tfoot>
                 </table>
