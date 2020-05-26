@@ -53,7 +53,7 @@ const AjoutProduitRef = (props) => {
     }
     const { nom,  dureeConservation } = produitData;
     const btn = (nom === '' ||  dureeConservation === '' ) ?
-        <button disabled>Inscription</button> : <button >Inscription</button>
+        <button disabled>Ajouter</button> : <button >Ajouter</button>
     //gestion du message d'erreur
     const errorMsg = error !== '' && <span>{error.message}</span>
     return (
@@ -88,7 +88,5 @@ const AjoutProduitRef = (props) => {
         </div>
             )
     )
-
-
 }
 export default AjoutProduitRef;

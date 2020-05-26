@@ -11,7 +11,7 @@ class Produits extends Component {
     componentDidMount(){
         const firebase = this.context;
         let tab = []
-        firebase.db.collection("produits")
+        firebase.affichageProduits()
         .get()
         .then(function(querySnapshot) {
             querySnapshot.forEach(function(doc) {
@@ -53,7 +53,7 @@ class Produits extends Component {
                         </tr>
                     </thead>
                     <tbody>
-                    {/* insertion des data */}
+                    {/* affichage des data */}
                     { this.data() }
                     </tbody>
                     <tfoot>
@@ -66,7 +66,6 @@ class Produits extends Component {
                 
             </div>
             )
-
     }
 }
 Produits.contextType=FirebaseContext;

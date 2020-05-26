@@ -32,6 +32,9 @@ class Firebase {
     //enrigistrement user dans la base de donnée
     user = (uid) =>this.db.doc(`users/${uid}`);
     
+    //affichage des produit
+    affichageProduits = ()=>this.db.collection("produits");
+    
     //creation de produit de reference
     ajouterProduitRef = (doc)=>this.db.collection("produits").add(doc);
 
