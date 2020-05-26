@@ -2,10 +2,13 @@ import React, { Component } from 'react';
 import { FirebaseContext } from '../Firebase';
 import './produit.module.css';
 import { Link } from 'react-router-dom';
+import Pagination from './Pagination';
 class Produits extends Component {
    
         state = { 
-            produitsRef:[]
+            produitsRef:[],
+            pageCourante:1,
+            nbrProduitsParPage:4
         }
 
     componentDidMount(){
@@ -26,11 +29,13 @@ class Produits extends Component {
     
     
     data = ()=>{ 
-        const data = this.state.produitsRef.map((produit,index)=>{
-           
+        //la pagination 
+        const indexLastProduit=this.state.pageCourante*this.state.produitsRef.length;
+        const indexFirstProduit = indexLastProduit - this.state.nbrProduitsParPage;
+        const currentProduit =this.state.produitsRef.slice(indexFirstProduit,indexLastProduit);
+        const data = currentProduit.map((produit,index)=>{
             return(
                 <tr key={index}>
-                    <th scope="row">{index}</th>
                     <th scope="row">{produit.id}</th>
                     <td>{produit.name}</td>
                     <td>{produit.dureeConservation}</td>
@@ -42,9 +47,7 @@ class Produits extends Component {
     }
     render() {
         return (
-            
             <div className="resto-bg">
-          
                 <table>
                     <caption><Link to="/ajouterProduitRef" >Ajouter des produits de reference</Link></caption>
                     <thead>
@@ -63,7 +66,7 @@ class Produits extends Component {
                         <tr>
                             <th>Total produits de references</th>
                             <td>{this.state.produitsRef.length}</td>
-                            <th>pagination 123456789</th>
+                            <th><Pagination nbrProduitsParPage={this.state.nbrProduitsParPage} totalPoroduits={this.state.produitsRef.length}/></th>
                         </tr>
                     </tfoot>
                 </table>
