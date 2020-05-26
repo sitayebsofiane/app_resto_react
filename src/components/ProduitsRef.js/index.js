@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { FirebaseContext } from '../Firebase';
 import './produit.module.css';
 import { Link } from 'react-router-dom';
-import Pagination from './Pagination';
+import Pagination from '../Pagination';
 class Produits extends Component {
    
         state = { 
@@ -32,9 +32,8 @@ class Produits extends Component {
         //la pagination 
         const indexLastProduit=this.state.pageCourante*this.state.nbrProduitsParPage;
         const indexFirstProduit = indexLastProduit - this.state.nbrProduitsParPage;
-        const currentProduit =this.state.produitsRef.slice(indexFirstProduit,indexLastProduit);
-        console.log(currentProduit)
-        const data = currentProduit.map((produit,index)=>{
+        const currentProduits =this.state.produitsRef.slice(indexFirstProduit,indexLastProduit);
+        const data = currentProduits.map((produit,index)=>{
             return(
                 <tr key={index}>
                     <th scope="row">{produit.id}</th>
@@ -53,7 +52,6 @@ class Produits extends Component {
         })
     }
     render() {
-        console.log(this.state.pageCourante)
         return (
             <div className="resto-bg">
                 <table>
