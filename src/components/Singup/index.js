@@ -16,6 +16,7 @@ const Signup = (props) => {
     const [loginData, setLoginData] = useState(data);
     //je creer ici un etat pour les message d'erreur
     const [error, setError] = useState('');
+    //je remplie les data avec les champs saisie par l'utilisateur
     const handleChange = (e) => {
         setLoginData({ ...loginData, [e.target.id]: e.target.value })
     }
@@ -30,6 +31,7 @@ const Signup = (props) => {
             ecouteur()
         };
     }, [firebase, props.history])
+    //enrigistrement dans la base de donnée
     const handleSubmit = (e) => {
         e.preventDefault();
         const { email, password , pseudo} = loginData;
@@ -43,7 +45,7 @@ const Signup = (props) => {
             .then(() => {
                 //ici je vide mon etat
                 setLoginData({ ...data });
-                //je le redirige vers la page(composant) welcome
+                //je le redirige vers la page(composant) connexion
                 props.history.push('/login');
 
             })

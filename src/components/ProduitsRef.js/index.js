@@ -27,8 +27,10 @@ class Produits extends Component {
     
     data = ()=>{ 
         const data = this.state.produitsRef.map((produit,index)=>{
+           
             return(
                 <tr key={index}>
+                    <th scope="row">{index}</th>
                     <th scope="row">{produit.id}</th>
                     <td>{produit.name}</td>
                     <td>{produit.dureeConservation}</td>
@@ -47,7 +49,8 @@ class Produits extends Component {
                     <caption><Link to="/ajouterProduitRef" >Ajouter des produits de reference</Link></caption>
                     <thead>
                         <tr>
-                            <th scope="col">ID produit</th>
+                            <th scope="col">Index produit</th>
+                            <th scope="col">idFirebase produit</th>
                             <th scope="col">Nom du produit  </th>
                             <th scope="col">Durée de Concervation</th>
                         </tr>
@@ -58,8 +61,9 @@ class Produits extends Component {
                     </tbody>
                     <tfoot>
                         <tr>
-                            <th scope="row" colSpan="2">Total produits de references</th>
-                            <td colSpan="2">{this.state.produitsRef.length}</td>
+                            <th>Total produits de references</th>
+                            <td>{this.state.produitsRef.length}</td>
+                            <th>pagination 123456789</th>
                         </tr>
                     </tfoot>
                 </table>
