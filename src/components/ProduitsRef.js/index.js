@@ -8,7 +8,7 @@ class Produits extends Component {
         state = { 
             produitsRef:[],
             pageCourante:1,
-            nbrProduitsParPage:4
+            nbrProduitsParPage:3
         }
 
     componentDidMount(){
@@ -30,9 +30,10 @@ class Produits extends Component {
     
     data = ()=>{ 
         //la pagination 
-        const indexLastProduit=this.state.pageCourante*this.state.produitsRef.length;
+        const indexLastProduit=this.state.pageCourante*this.state.nbrProduitsParPage;
         const indexFirstProduit = indexLastProduit - this.state.nbrProduitsParPage;
         const currentProduit =this.state.produitsRef.slice(indexFirstProduit,indexLastProduit);
+        console.log(currentProduit)
         const data = currentProduit.map((produit,index)=>{
             return(
                 <tr key={index}>
@@ -45,14 +46,20 @@ class Produits extends Component {
         })
         return data
     }
+    // changer de page
+    paginate = (pageNumber)=>{
+        this.setState({
+            pageCourante:pageNumber
+        })
+    }
     render() {
+        console.log(this.state.pageCourante)
         return (
             <div className="resto-bg">
                 <table>
                     <caption><Link to="/ajouterProduitRef" >Ajouter des produits de reference</Link></caption>
                     <thead>
                         <tr>
-                            <th scope="col">Index produit</th>
                             <th scope="col">idFirebase produit</th>
                             <th scope="col">Nom du produit  </th>
                             <th scope="col">Durée de Concervation</th>
@@ -66,7 +73,12 @@ class Produits extends Component {
                         <tr>
                             <th>Total produits de references</th>
                             <td>{this.state.produitsRef.length}</td>
-                            <th><Pagination nbrProduitsParPage={this.state.nbrProduitsParPage} totalPoroduits={this.state.produitsRef.length}/></th>
+                            <th><Pagination
+                             nbrProduitsParPage={this.state.nbrProduitsParPage} 
+                            totalPoroduits={this.state.produitsRef.length}
+                             paginate={this.paginate}
+                                 
+                             /></th>
                         </tr>
                     </tfoot>
                 </table>

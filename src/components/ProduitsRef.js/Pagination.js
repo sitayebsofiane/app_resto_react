@@ -1,18 +1,17 @@
 import React from 'react'
-
-const Pagination = ({ nbrProduitsParPage,totalPoroduits}) => {
-    console.log( Math.ceil(totalPoroduits/nbrProduitsParPage))
+import 'bootstrap/dist/css/bootstrap.min.css';
+const Pagination = ({ nbrProduitsParPage,totalPoroduits,paginate}) => {
     const pageNumbers = [];
     for (let index = 1; index <= Math.ceil(totalPoroduits/nbrProduitsParPage); index++) {
        pageNumbers.push(index);
     }
     return (
         <nav>
-           <ul>
+           <ul className="pagination">
                {
                    pageNumbers.map(number=>(
-                       <li key={number}>
-                        <a href ="!#">
+                       <li key={number}  className="page-item">
+                        <a onClick={()=>paginate(number)} href ="#!" className="page-link">
                             {number}
                         </a>
                        </li>

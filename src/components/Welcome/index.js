@@ -45,7 +45,7 @@ const Welcome = (props) => {
             </Fragment>
         ) : (
             <div className="resto_bg">
-                    <h1 style={{ color: "red" }}>Bienvenue: { userData.pseudo }</h1>
+                    <h1 style={{ color: "red" }}>utilisateur: { userData.pseudo }</h1>
                     <div style={styleInscription} className="leftBox" >
                         <Link to="/signup" className="btn-welcome">Inscription des utilisateurs</Link>
                     </div>
