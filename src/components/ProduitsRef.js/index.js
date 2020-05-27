@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
 import { FirebaseContext } from '../Firebase';
 import './produit.module.css';
+//import 'bootstrap/dist/css/bootstrap.min.css';
 import { Link } from 'react-router-dom';
 import Pagination from '../Pagination';
+
 class Produits extends Component {
    
         state = { 
+            produitSentToStock:null,
             produitsRef:[],
             pageCourante:1,
             nbrProduitsParPage:3
@@ -27,7 +30,6 @@ class Produits extends Component {
         this.setState({ produitsRef:tab })
     }
     
-    
     data = ()=>{ 
         //la pagination 
         const indexLastProduit=this.state.pageCourante*this.state.nbrProduitsParPage;
@@ -38,8 +40,8 @@ class Produits extends Component {
                 <tr key={index}>
                     <th scope="row">{produit.id}</th>
                     <td>{produit.name}</td>
-                    <td>{produit.dureeConservation}</td>
-                    <td><button>ajouter au stock</button></td>
+                    <td>{produit.dureeConservation} heures</td>
+                    <td>Categories</td>
                 </tr>
             )
         })
@@ -54,13 +56,14 @@ class Produits extends Component {
     render() {
         return (
             <div className="resto-bg">
-                <table>
+                <table >
                     <caption><Link to="/ajouterProduitRef" >Ajouter des produits de reference</Link></caption>
                     <thead>
                         <tr>
                             <th scope="col">idFirebase produit</th>
                             <th scope="col">Nom du produit  </th>
                             <th scope="col">Durée de Concervation</th>
+                            <th scope="col">Categories</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -71,16 +74,17 @@ class Produits extends Component {
                         <tr>
                             <th>Total produits de references</th>
                             <td>{this.state.produitsRef.length}</td>
-                            <th><Pagination
-                             nbrProduitsParPage={this.state.nbrProduitsParPage} 
-                            totalPoroduits={this.state.produitsRef.length}
-                             paginate={this.paginate}
-                                 
-                             /></th>
+                            <th>
+                                <Pagination
+                                    nbrProduitsParPage={this.state.nbrProduitsParPage} 
+                                    totalPoroduits={this.state.produitsRef.length}
+                                    paginate={this.paginate}
+                                />
+                            </th>
+                            <th> <button><Link to="/stock">aller aux Stock</Link></button></th>
                         </tr>
                     </tfoot>
                 </table>
-                
             </div>
             )
     }

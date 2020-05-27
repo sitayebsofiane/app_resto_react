@@ -17,16 +17,8 @@ table {
     font-family: 'Rock Salt', cursive;
   }
   
-  
-  tbody td {
-    text-align: center;
-  }
-  
-  tfoot th {
-    text-align: right;
-  }
   caption {
-    font-family: 'Rock Salt', cursive;
+    font-family: 'Bangers', cursive;
     padding: 20px;
     font-style: italic;
     caption-side: bottom;

@@ -71,7 +71,7 @@ const AjoutProduitRef = (props) => {
                         <form onSubmit={handleSubmit}>
                             <div className="inputBox">
                                 <input onChange={handleChange} value={nom} type="text" id="nom" required />
-                                <label htmlFor="nom">Nom</label>
+                                <label htmlFor="nom">Nom du produit de reference</label>
                             </div>
                             <div className="inputBox">
                                 <input onChange={handleChange} value={dureeConservation} type="number" id="dureeConservation" required />

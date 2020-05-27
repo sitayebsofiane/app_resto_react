@@ -10,6 +10,7 @@ import Signup from '../Singup';
 import ErrorPage from '../ErrorPage';
 import MotPasseOublie from '../MotPasseOublie';
 import AjouterProduitRef from '../AjoutProduitRef';
+import Stock from '../Stock';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
         <Route path="/signup" component={Signup} />
         <Route path="/motpasseoublie" component={MotPasseOublie} />
         <Route path="/ajouterProduitRef" component={AjouterProduitRef} />
+        <Route path="/stock" component={Stock} />
         <Route component={ErrorPage} />
         <Landing />
       </Switch>
